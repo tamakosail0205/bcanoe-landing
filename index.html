@@ -754,6 +754,20 @@
     emailjs.init("pdoL1uaTJvcQun7eE");
     console.log('EmailJS initialized');
 
+    function startCountdown() {
+      const deadline = new Date('2025-08-21T15:00:00').getTime();
+      const countdown = document.getElementById('countdown');
+      if (!countdown) return;
+      setInterval(() => {
+        const now = new Date().getTime();
+        const distance = deadline - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        countdown.textContent = `모집 마감까지 ${days}일 ${hours}시간 남음`;
+        if (distance < 0) countdown.textContent = '모집 마감';
+      }, 1000);
+    }
+
     function openModal(date) {
       console.log('openModal', date);
       const modal = document.getElementById('modal');
@@ -884,6 +898,8 @@
     }, { threshold: 0.2 });
     fadeIns.forEach(item => observer.observe(item));
 
+    document.addEventListener('DOMContentLoaded', () => {
+      startCountdown();
     });
   </script>
 </body>
