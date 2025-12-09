@@ -490,42 +490,52 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    emailjs.init("pdoL1uaTJvcQun7eE");
+<script>
+  emailjs.init("pdoL1uaTJvcQun7eE"); // ← 본인 public key 그대로
 
-    function openModal() { document.getElementById('modal').style.display = 'flex'; }
-    function closeModal() { document.getElementById('modal').style.display = 'none'; }
-    function openSuccessModal() { document.getElementById('successModal').style.display = 'flex'; }
-    function closeSuccessModal() {
-      document.getElementById('successModal').style.display = 'none';
-      closeModal();
-      document.getElementById('signupForm').reset();
-    }
+  function openModal() { document.getElementById('modal').style.display = 'flex'; }
+  function closeModal() { document.getElementById('modal').style.display = 'none'; }
+  function openSuccessModal() { document.getElementById('successModal').style.display = 'flex'; }
+  function closeSuccessModal() {
+    document.getElementById('successModal').style.display = 'none';
+    closeModal();
+    document.getElementById('signupForm').reset();
+  }
 
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const templateParams = {
-        parent_name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        child_name: document.getElementById('childName').value,
-        child_gender: document.getElementById('childGender').value,
-        child_age: document.getElementById('childAge').value,
-        participants: document.getElementById('participants').value,
-        camp_date: "2026년 1월 15~17일 겨울 캠 캠프"
-      };
-      emailjs.send('service_abc123', 'template_xyz789', templateParams)
-        .then(() => openSuccessModal())
-        .catch(() => alert('전송에 실패했습니다. 다시 시도해 주세요.'));
-    });
+  document.getElementById('signupForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    // Fade-in 애니메이션
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+    // 체크박스 값 추가 (동의하면 "동의함", 아니면 "미동의")
+    const privacyValue = document.getElementById('privacyAgree').checked ? "동의함" : "미동의";
+
+    const templateParams = {
+      name:          document.getElementById('name').value,
+      phone:         document.getElementById('phone').value,
+      childName:     document.getElementById('childName').value,     // ← 여기 수정
+      childAge:      document.getElementById('childAge').value,
+      childGender:   document.getElementById('childGender').value,
+      participants:  document.getElementById('participants').value,
+      date:          document.getElementById('date').value,
+      privacy_agree: privacyValue                                   // ← 여기 추가
+    };
+
+    emailjs.send('service_abc123', 'template_xyz789', templateParams)  // ← 본인 service ID / template ID
+      .then(() => {
+        openSuccessModal();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('전송에 실패했습니다. 잠시 후 다시 시도해 주세요.');
       });
-    }, { threshold: 0.15 });
+  });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+  // Fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
