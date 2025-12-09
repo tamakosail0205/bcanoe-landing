@@ -81,6 +81,65 @@
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+    /* 캠프 흐름 6단계 카드 */
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+.flow-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+.flow-card:hover { transform: translateY(-8px); }
+.flow-num {
+  width: 50px; height: 50px;
+  background: #d32f2f;
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  line-height: 50px;
+}
+.flow-card h3 { font-size: 1.4em; margin: 10px 0; color: #1565c0; }
+.flow-card p { font-size: 0.95em; color: #555; line-height: 1.5; }
+
+/* 타임테이블 */
+.timetable { background: #f8fdff; padding: 50px 20px; border-radius: 15px; }
+.timetable-details summary {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #d32f2f;
+  cursor: pointer;
+  padding: 15px 0;
+}
+.timetable-content { margin-top: 20px; }
+.timetable-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.timetable-table th {
+  background: #d32f2f;
+  color: white;
+  padding: 12px;
+  font-size: 1.1em;
+}
+.timetable-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.timetable-table tr:last-child td { border-bottom: none; }
+    
     /* 반응형 (기존 그대로) */
     @media (max-width: 768px) { /* ... 기존 미디어 쿼리 그대로 ... */ }
     @media (max-width: 375px) { /* ... 기존 미디어 쿼리 그대로 ... */ }
@@ -117,6 +176,89 @@
     </div>
   </div>
 
+<!-- 1. 캠프 흐름 6단계 (Experience 섹션 바로 아래 삽입) -->
+<div class="section flow">
+  <h2 class="fade-in">2박 3일 캠프 흐름</h2>
+  <div class="flow-grid">
+    <div class="flow-card fade-in">
+      <div class="flow-num">1</div>
+      <h3>만남</h3>
+      <p>전국에서 모인 새로운 친구들과<br>학교 밖에서 나를 새롭게 발견해요</p>
+    </div>
+    <div class="flow-card fade-in">
+      <div class="flow-num">2</div>
+      <h3>캠핑 요리</h3>
+      <p>직접 밥을 지으며 독립의 첫걸음,<br>맛있는 요리를 함께 나누는 즐거움</p>
+    </div>
+    <div class="flow-card fade-in">
+      <div class="flow-num">3</div>
+      <h3>DIY 모험놀이터</h3>
+      <p>나만의 모험 공간을 창조하며<br>야생의 즐거움을 만끽해요</p>
+    </div>
+    <div class="flow-card fade-in">
+      <div class="flow-num">4</div>
+      <h3>자유 놀이</h3>
+      <p>어른의 간섭 없이 아이들끼리 규칙을 만들며<br>진짜 나를 찾아가요</p>
+    </div>
+    <div class="flow-card fade-in">
+      <div class="flow-num">5</div>
+      <h3>야생의 용기</h3>
+      <p>밤길을 홀로 걸으며 두려움을 이겨내고<br>서로의 용기를 축하해요</p>
+    </div>
+    <div class="flow-card fade-in">
+      <div class="flow-num">6</div>
+      <h3>나눔과 축하</h3>
+      <p>2박 3일의 추억을 나누고<br>내 성장을 스스로 축하해요</p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 상세 타임테이블 (프로그램 개요 바로 아래 삽입) -->
+<div class="section timetable">
+  <h2 class="fade-in">상세 타임테이블 (클릭 시 펼쳐보기)</h2>
+  <details open class="timetable-details">
+    <summary>집합·해산 장소 및 전체 일정 보기</summary>
+    <div class="timetable-content">
+      <p style="margin:15px 0; color:#d32f2f; font-weight:bold;">
+        집합 장소: 전라남도 곡성군 고달면 고주로 182 (나무발전소)<br>
+        캠프 장소: 전남 곡성군 죽곡면 오죽로 20-12 (죽곡농민열린도서관, 봉황섬 카누캠핑장)<br>
+        해산 장소: 전라남도 곡성군 읍내2길 13 고운아파트 106동 (이화서원 네비 검색)
+      </p>
+      <p style="font-size:0.9em; color:#555;">※ 날씨 및 상황에 따라 일부 일정이 변경될 수 있습니다.</p>
+
+      <table class="timetable-table">
+        <tr><th colspan="2"><strong>1월 15일 (1일차)</strong></th></tr>
+        <tr><td>14:00</td><td>나무발전소 집합 및 자기소개</td></tr>
+        <tr><td>15:00</td><td>트리클라이밍</td></tr>
+        <tr><td>16:00</td><td>불피우기</td></tr>
+        <tr><td>19:00</td><td>숙소 이동 및 저녁식사 (고운아파트)</td></tr>
+        <tr><td>20:00</td><td>자유놀이</td></tr>
+        <tr><td>22:00</td><td>취침준비</td></tr>
+      </table>
+
+      <table class="timetable-table">
+        <tr><th colspan="2"><strong>1월 16일 (2일차)</strong></th></tr>
+        <tr><td>08:00</td><td>아침 식사</td></tr>
+        <tr><td>09:00</td><td>카누캠핑장 이동</td></tr>
+        <tr><td>10:00</td><td>배타기</td></tr>
+        <tr><td>12:00</td><td>캠핑 요리 챌린지</td></tr>
+        <tr><td>14:00</td><td>활쏘기</td></tr>
+        <tr><td>17:00</td><td>숙소 이동 및 저녁식사 만들기</td></tr>
+        <tr><td>20:00</td><td>야생의 용기 (밤길 걷기)</td></tr>
+        <tr><td>22:00</td><td>취침준비</td></tr>
+      </table>
+
+      <table class="timetable-table">
+        <tr><th colspan="2"><strong>1월 17일 (3일차)</strong></th></tr>
+        <tr><td>08:00</td><td>아침 식사</td></tr>
+        <tr><td>09:00</td><td>캠프 짐정리</td></tr>
+        <tr><td>10:00</td><td>후기 나눔</td></tr>
+        <tr><td>13:00</td><td>점심 후 해산 (이화서원)</td></tr>
+      </table>
+    </div>
+  </details>
+</div>
+  
   <!-- Video Preview -->
   <div class="section video-preview">
     <h2>캠프 미리보기</h2>
