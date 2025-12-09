@@ -155,6 +155,54 @@
     }
     .review-mini-card:hover { transform: translateY(-8px); }
 
+/* FAQ 고급 아코디언 디자인 */
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+    .faq details {
+      margin-bottom: 16px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      background: white;
+    }
+    .faq summary {
+      padding: 20px 24px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      background: #fff;
+      position: relative;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq summary::after {
+      content: "+";
+      font-size: 2em;
+      color: #d32f2f;
+      font-weight: 300;
+      transition: transform 0.3s;
+    }
+    .faq details[open] summary::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+    .faq details[open] summary {
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .faq p {
+      padding: 24px;
+      margin: 0;
+      background: #fafafa;
+      text-align: left;
+      line-height: 1.8;
+      color: #444;
+    }
+    
     /* 프로그램 개요 테이블 */
     .overview table { margin: 30px 0; }
     .overview td:first-child { width: 30%; font-weight: bold; background: #fff5f5; }
@@ -223,6 +271,21 @@
       .cta-button { font-size: 1.15em; padding: 14px 24px; }
       .flow-num { width: 50px; height: 50px; line-height: 50px; font-size: 1.8em; }
       .review-image-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .final-cta {
+      padding: 90px 20px 120px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fdff 100%);
+    }
+    .final-cta h2 {
+      font-size: 2.4em;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    .final-cta p {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 35px;
     }
   </style>
 </head>
@@ -397,14 +460,29 @@
   </div>
 
   <!-- FAQ -->
-  <div class="section faq fade-in">
-    <h2>자주 묻는 질문</h2>
-    <details open><summary>겨울인데 춥지 않을까요?</summary><p>숙소는 아파트형 난방 완비, 활동 시 핫팩 제공합니다.<br>아이들이 춥다고 느낄 틈 없이 활동량이 많아 따뜻하게 보냅니다.</p></details>
-    <details open><summary>혼자 보내도 괜찮을까요?</summary><p>90% 이상이 처음으로 부모님 없이 2박을 보냅니다.<br>선생님 1:5 비율로 24시간 함께하며, 첫날 저녁부터 금세 친구들과 어울립니다.</p></details>
-    <details open><summary>준비물은 뭔가요?</summary><p>방한복, 내복, 목도리/장갑/방한모, 여벌 옷, 세면도구, 개인 물통, 상비약 등.<br>자세한 리스트는 신청 후 안내드립니다.</p></details>
-    <details open><summary>식사는 어떻게 되나요?</summary><p>아침/점심/저녁 모두 제공되며, 아이들이 직접 불 피우고 요리하는 프로그램도 포함됩니다.<br>알레르기 식단은 사전에 말씀주시면 됩니다.</p></details>
-    <details open><summary>환불 규정은?</summary><p>14일 전 100%, 7일 전 70%, 3일 전 50%, 이후 환불 불가.</p></details>
-    <details open><summary>안전은 믿을 수 있나요?</summary><p>수상안전요원, 응급처치 자격 강사 상주, 전원 레저보험+여행자보험 가입<br>5년 이상 운영 노하우로 안전 최우선 운영합니다.</p></details>
+ <div class="section faq fade-in">
+    <h2 style="font-size:2.2em;margin-bottom:50px;">자주 묻는 질문</h2>
+    <details open>
+      <summary>겨울인데 춥지 않을까요?</summary>
+      <p>숙소는 아파트형 난방 완비이고, 활동 시 핫팩을 제공합니다.<br>아이들이 쉴 틈 없이 움직여서 대부분 “덥다!”고 할 정도로 따뜻하게 보냅니다.</p>
+    </details>
+    <details open>
+      <summary>처음으로 혼자 보내는데 괜찮을까요?</summary>
+      <p>참가 아동의 90% 이상이 부모님 없이 처음 2박을 보냅니다.<br>선생님 1:5 비율로 24시간 함께하며, 첫날 저녁부터 금세 친구들과 어울려요.</p>
+    </details>
+    <details>
+      <summary>준비용과 환불 규정은 어떻게 되나요?</summary>
+      <p><strong>비용 :</strong> 1인 35만원 (2인 63만원, 3인 84만원)<br>
+         <strong>환불 :</strong> 14일 전 100%, 7일 전 70%, 3일 전 50%, 그 이후 환불 불가</p>
+    </details>
+    <details>
+      <summary>준비물은 뭔가요?</summary>
+      <p>방한복·내복·목도리·장갑·방한모·여벌옷·세면도구·개인 물통·상비약 등<br>신청 후 카톡/문자로 상세 리스트 발송해드립니다.</p>
+    </details>
+    <details>
+      <summary>안전은 믿을 수 있나요?</summary>
+      <p>안전요원 자격 강사 상주, <br>5년 연속 무사고, 안전이 최우선입니다.</p>
+    </details>
   </div>
 
   <!-- 운영진 -->
@@ -419,10 +497,13 @@
     </div>
   </div>
 
-  <!-- Footer CTA -->
-  <div class="section" style="background:#d32f2f;padding:70px 20px;color:white;">
-    <h2 style="font-size:2.2em;margin-bottom:25px;">지금 바로 독립과 우정의 시간을 선물하세요</h2>
-    <button class="cta-button" onclick="openModal()">신청하기</button>
+ <!-- 최종 CTA – 세련되게 정리 -->
+  <div class="final-cta fade-in">
+    <h2>아이에게 진짜 겨울을 선물하세요</h2>
+    <p>독립, 우정, 도전, 성장이 가득한 2박 3일<br>지금 바로 신청하고 잊지 못할 추억을 만들어 주세요</p>
+    <button class="cta-button" onclick="openModal()" style="font-size:1.4em;padding:18px 40px;">
+      지금 신청하기
+    </button>
   </div>
 
   <!-- Floating CTA -->
