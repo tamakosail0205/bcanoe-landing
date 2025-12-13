@@ -63,26 +63,30 @@
     .section { padding: 60px 20px; max-width: 1000px; margin: auto; }
 
     /* 캠프 흐름 카드 */
-    .flow-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin: 40px 0;
-    }
-    .flow-card {
-      background: white;
-      border-radius: 16px;
-      padding: 30px 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .flow-card:hover { transform: translateY(-10px); }
-    .flow-num {
-      width: 60px; height: 60px; background: #d32f2f; color: white;
-      font-size: 2.2em; font-weight: bold; border-radius: 50%;
-      margin: 0 auto 20px; line-height: 60px;
-    }
-
+  .flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+.flow-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+}
+.flow-card:hover {
+  transform: translateY(-12px);
+}
+.flow-num {
+  width: 70px; height: 70px; background: #d32f2f; color: white;
+  font-size: 2.4em; font-weight: bold; border-radius: 50%;
+  margin: 0 auto 20px; line-height: 70px;
+}
+.flow-card h3 { font-size: 1.4em; margin: 15px 0; color: #333; }
+.flow-card p { font-size: 1.05em; color: #555; }
+    
     /* 테이블 스타일 개선 (실선 추가 + 보기 좋게) */
     table {
       width: 100%;
@@ -321,18 +325,74 @@
   </div>
 
   <!-- 캠프 흐름 -->
-  <div class="section flow">
-    <h2 class="fade-in">2박 3일 캠프 흐름</h2>
-    <div class="flow-grid">
-      <div class="flow-card fade-in"><div class="flow-num">1</div><h3>만남</h3><p>전국에서 모인 새로운 친구들과 학교 밖에서 나를 새롭게 발견해요</p></div>
-      <div class="flow-card fade-in"><div class="flow-num">2</div><h3>캠핑 요리</h3><p>직접 밥을 지으며 독립의 첫걸음, 맛있는 요리를 하는 즐거움을 느껴요</p></div>
-      <div class="flow-card fade-in"><div class="flow-num">3</div><h3>DIY 모험놀이터</h3><p>나만의 모험 공간을 창조하며 야생의 즐거움을 만끽해요</p></div>
-      <div class="flow-card fade-in"><div class="flow-num">4</div><h3>자유 놀이</h3><p>어른의 간섭 없이 아이들끼리 규칙을 만들며 진짜 나를 찾아가요</p></div>
-      <div class="flow-card fade-in"><div class="flow-num">5</div><h3>야생의 용기</h3><p>밤길을 홀로 걸으며 두려움을 이겨내고 서로의 용기를 축하해요</p></div>
-      <div class="flow-card fade-in"><div class="flow-num">6</div><h3>나눔과 축하</h3><p>2박 3일의 추억을 나누고 내 성장을 스스로 축하해요</p></div>
+<!-- 캠프 흐름 섹션 (교체용) -->
+<div class="section flow">
+  <h2 class="fade-in">2박 3일 캠프 흐름</h2>
+  <p style="max-width:800px;margin:20px auto 50px;font-size:1.1em;color:#555;">
+    아이들이 직접 경험하며 성장하는 6단계 여정
+  </p>
+  <div class="flow-grid">
+    <!-- 1. 만남 -->
+    <div class="flow-card fade-in">
+      <img src="https://i.imgur.com/EBIvrPE.png" alt="만남 - 새로운 친구들과 둘러앉아 이야기 나누기" style="width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;">
+      <div style="padding:20px;">
+        <div class="flow-num">1</div>
+        <h3>만남</h3>
+        <p>전국에서 모인 새로운 친구들과 학교 밖에서 나를 새롭게 발견해요</p>
+      </div>
+    </div>
+
+    <!-- 2. 캠핑 요리 -->
+    <div class="flow-card fade-in">
+      <img src="https://i.imgur.com/ngGrObc.png" alt="캠핑 요리 - 모닥불에 마시멜로 굽기" style="width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;">
+      <div style="padding:20px;">
+        <div class="flow-num">2</div>
+        <h3>캠핑 요리</h3>
+        <p>직접 밥을 지으며 독립의 첫걸음, 맛있는 요리를 하는 즐거움을 느껴요</p>
+      </div>
+    </div>
+
+    <!-- 3. DIY 모험놀이터 -->
+    <div class="flow-card fade-in">
+      <img src="https://i.imgur.com/e9XPcHW.png" alt="DIY 모험놀이터" style="width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;">
+      <div style="padding:20px;">
+        <div class="flow-num">3</div>
+        <h3>DIY 모험놀이터</h3>
+        <p>나만의 모험 공간을 창조하며 야생의 즐거움을 만끽해요</p>
+      </div>
+    </div>
+
+    <!-- 4. 자유 놀이 -->
+    <div class="flow-card fade-in">
+      <img src="https://i.imgur.com/Z5SKGRn.png" alt="자유 놀이 - 체스와 보드게임" style="width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;">
+      <div style="padding:20px;">
+        <div class="flow-num">4</div>
+        <h3>자유 놀이</h3>
+        <p>어른의 간섭 없이 아이들끼리 규칙을 만들며 진짜 나를 찾아가요</p>
+      </div>
+    </div>
+
+    <!-- 5. 야생의 용기 -->
+    <div class="flow-card fade-in">
+      <img src="https://i.imgur.com/VEqFqXu.png" alt="야생의 용기 - 모닥불 주변" style="width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;">
+      <div style="padding:20px;">
+        <div class="flow-num">5</div>
+        <h3>야생의 용기</h3>
+        <p>밤길을 홀로 걸으며 두려움을 이겨내고 서로의 용기를 축하해요</p>
+      </div>
+    </div>
+
+    <!-- 6. 나눔과 축하 -->
+    <div class="flow-card fade-in">
+      <img src="blob:https://imgur.com/f858580c-351f-46b1-ac78-c09971472638" alt="나눔과 축하 - 후기 나눔 카드 활동" style="width:100%;height:220px;object-fit:cover;border-radius:16px 16px 0 0;">
+      <div style="padding:20px;">
+        <div class="flow-num">6</div>
+        <h3>나눔과 축하</h3>
+        <p>2박 3일의 추억을 나누고 내 성장을 스스로 축하해요</p>
+      </div>
     </div>
   </div>
-
+</div>
   <!-- 타임테이블 -->
   <div class="section timetable">
     <h2 class="fade-in">상세 타임테이블 (클릭 시 펼쳐보기)</h2>
